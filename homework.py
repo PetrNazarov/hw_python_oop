@@ -145,8 +145,9 @@ def read_package(workout_type: str, data: list) -> Training:
                                           'RUN': Running,
                                           'WLK': SportsWalking
                                           }
-    if workout_type in types_of_trainings:
-        return types_of_trainings[workout_type](*data)
+    if workout_type not in types_of_trainings:
+        raise KeyError('Not found')
+    return types_of_trainings[workout_type](*data)
 
 
 def main(training: Training) -> None:

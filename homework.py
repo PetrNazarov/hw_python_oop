@@ -139,15 +139,14 @@ class Swimming(Training):
         )
 
 
-def read_package(workout_type: str, data: list) -> Training:
+def read_package(workout_type: str, data: list[int]) -> Training:
     """Прочитать данные полученные от датчиков."""
     types_of_trainings: type[Training] = {'SWM': Swimming,
                                           'RUN': Running,
                                           'WLK': SportsWalking
                                           }
-    if workout_type is None:
-        raise KeyError('Not found')
-    return types_of_trainings[workout_type](*data)
+    if workout_type in types_of_trainings:
+        return types_of_trainings[workout_type](*data)
 
 
 def main(training: Training) -> None:

@@ -35,4 +35,4 @@ pip install -r requirements.txt
 ____
 ### Автор  
 Пётр Назаров  
-(https://github.com/Pnazarov86)
+(https://github.com/PetrNazarov)
